@@ -15,6 +15,8 @@
 		7AB9232721EA7BB900C02CC1 /* ViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB9232621EA7BB900C02CC1 /* ViewController+UI.swift */; };
 		7AB9232921EA7E5400C02CC1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB9232821EA7E5400C02CC1 /* SignUpViewController.swift */; };
 		7AB9232B21EA85B900C02CC1 /* SignUpViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB9232A21EA85B900C02CC1 /* SignUpViewController+UI.swift */; };
+		7AB9232D21EA8D1400C02CC1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB9232C21EA8D1400C02CC1 /* SignInViewController.swift */; };
+		7AB9232F21EA8E1700C02CC1 /* SignInViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB9232E21EA8E1700C02CC1 /* SignInViewController+UI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		7AB9232621EA7BB900C02CC1 /* ViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UI.swift"; sourceTree = "<group>"; };
 		7AB9232821EA7E5400C02CC1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7AB9232A21EA85B900C02CC1 /* SignUpViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpViewController+UI.swift"; sourceTree = "<group>"; };
+		7AB9232C21EA8D1400C02CC1 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		7AB9232E21EA8E1700C02CC1 /* SignInViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInViewController+UI.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 				7AB9232621EA7BB900C02CC1 /* ViewController+UI.swift */,
 				7AB9232821EA7E5400C02CC1 /* SignUpViewController.swift */,
 				7AB9232A21EA85B900C02CC1 /* SignUpViewController+UI.swift */,
+				7AB9232C21EA8D1400C02CC1 /* SignInViewController.swift */,
+				7AB9232E21EA8E1700C02CC1 /* SignInViewController+UI.swift */,
 				7A8ED60921EA64E200E9EE73 /* Welcome.storyboard */,
 				7A8ED5FE21EA64A800E9EE73 /* Assets.xcassets */,
 				7A8ED60021EA64A800E9EE73 /* LaunchScreen.storyboard */,
@@ -145,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB9232721EA7BB900C02CC1 /* ViewController+UI.swift in Sources */,
+				7AB9232F21EA8E1700C02CC1 /* SignInViewController+UI.swift in Sources */,
 				7A8ED5FA21EA64A200E9EE73 /* ViewController.swift in Sources */,
+				7AB9232D21EA8D1400C02CC1 /* SignInViewController.swift in Sources */,
 				7AB9232921EA7E5400C02CC1 /* SignUpViewController.swift in Sources */,
 				7A8ED5F821EA64A200E9EE73 /* AppDelegate.swift in Sources */,
 				7AB9232B21EA85B900C02CC1 /* SignUpViewController+UI.swift in Sources */,
