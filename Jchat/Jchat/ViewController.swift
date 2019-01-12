@@ -64,6 +64,40 @@ class ViewController: UIViewController {
         
         termsOfServiceLabel.attributedText = termsOfServiceText
         termsOfServiceLabel.numberOfLines = 0
+        
+        signInWithFacebook.setTitle("Sign in with Facebook", for: .normal)
+        signInWithFacebook.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        signInWithFacebook.backgroundColor = UIColor(red: 58/255, green: 85/255, blue: 159/255, alpha: 1)
+        signInWithFacebook.layer.cornerRadius = 5
+        signInWithFacebook.clipsToBounds = true
+        
+        signInWithFacebook.setImage(UIImage(named: "facebook"), for: .normal)
+        signInWithFacebook.imageView?.contentMode = .scaleAspectFit
+        signInWithFacebook.tintColor = .white
+        //shrink the image
+        signInWithFacebook.imageEdgeInsets = UIEdgeInsets(top: 12, left: -15, bottom: 12, right: 0)
+        
+        
+        
+        signInWithGoogle.setTitle("Sign in with Google", for: .normal)
+        signInWithGoogle.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        signInWithGoogle.backgroundColor = UIColor(red: 223/255, green: 74/255, blue: 50/255, alpha: 1)
+        signInWithGoogle.layer.cornerRadius = 5
+        signInWithGoogle.clipsToBounds = true
+        
+        signInWithGoogle.setImage(UIImage(named: "google"), for: .normal)
+        signInWithGoogle.imageView?.contentMode = .scaleAspectFit
+        signInWithGoogle.tintColor = .white
+        //shrink the image
+        signInWithGoogle.imageEdgeInsets = UIEdgeInsets(top: 12, left: -35, bottom: 12, right: 0)
+        
+        
+        createAnAccountButton.setTitle("Create a new account", for: .normal)
+        createAnAccountButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        createAnAccountButton.backgroundColor = UIColor.black
+        createAnAccountButton.layer.cornerRadius = 5
+        createAnAccountButton.clipsToBounds = true
+        
     }
 
 
