@@ -232,6 +232,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j7H-lH-zbi"/>
                     </view>
+                    <connections>
+                        <outlet property="avatar" destination="6hv-o1-beq" id="NWQ-QJ-67O"/>
+                        <outlet property="emailContainerView" destination="RfL-62-O2R" id="b9D-gw-XjI"/>
+                        <outlet property="emailTextField" destination="cY6-sa-6US" id="0UW-35-F1i"/>
+                        <outlet property="fullNameContainerView" destination="S6j-k4-G2u" id="dIM-Nq-7So"/>
+                        <outlet property="fullNameTextField" destination="NDZ-GI-sVa" id="mLz-yB-ZuP"/>
+                        <outlet property="passwordContainerView" destination="yFN-AL-D1i" id="4wB-tN-4LS"/>
+                        <outlet property="passwordTextField" destination="kL5-lT-Qzg" id="abn-EO-7LD"/>
+                        <outlet property="signInButton" destination="kIc-aZ-BcO" id="0Ks-9F-MEc"/>
+                        <outlet property="signUpButton" destination="oaw-x6-wlZ" id="Ko3-hO-mq1"/>
+                        <outlet property="titleTextLabel" destination="zDL-3f-wTu" id="BU6-EX-Ovf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQW-It-pm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
