@@ -41,7 +41,13 @@ class SignUpViewController: UIViewController {
     
 
     func setupUI() {
-        
+        setupTitleLabel()
+        setupAvatar()
+        setupFullNameTextField()
+        setupEmailTextField()
+        setupPasswordTextField()
+        setupSignUpButton()
+        setupSignInButton()
     }
 
 }
