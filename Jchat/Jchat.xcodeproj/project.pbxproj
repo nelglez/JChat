@@ -13,6 +13,7 @@
 		7A8ED60221EA64A800E9EE73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ED60021EA64A800E9EE73 /* LaunchScreen.storyboard */; };
 		7A8ED60A21EA64E200E9EE73 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ED60921EA64E200E9EE73 /* Welcome.storyboard */; };
 		7AB9232721EA7BB900C02CC1 /* ViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB9232621EA7BB900C02CC1 /* ViewController+UI.swift */; };
+		7AB9232921EA7E5400C02CC1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB9232821EA7E5400C02CC1 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7A8ED60321EA64A800E9EE73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8ED60921EA64E200E9EE73 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		7AB9232621EA7BB900C02CC1 /* ViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UI.swift"; sourceTree = "<group>"; };
+		7AB9232821EA7E5400C02CC1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				7A8ED5F721EA64A200E9EE73 /* AppDelegate.swift */,
 				7A8ED5F921EA64A200E9EE73 /* ViewController.swift */,
 				7AB9232621EA7BB900C02CC1 /* ViewController+UI.swift */,
+				7AB9232821EA7E5400C02CC1 /* SignUpViewController.swift */,
 				7A8ED60921EA64E200E9EE73 /* Welcome.storyboard */,
 				7A8ED5FE21EA64A800E9EE73 /* Assets.xcassets */,
 				7A8ED60021EA64A800E9EE73 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				7AB9232721EA7BB900C02CC1 /* ViewController+UI.swift in Sources */,
 				7A8ED5FA21EA64A200E9EE73 /* ViewController.swift in Sources */,
+				7AB9232921EA7E5400C02CC1 /* SignUpViewController.swift in Sources */,
 				7A8ED5F821EA64A200E9EE73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
