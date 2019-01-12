@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create a new account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouq-WH-ySL">
-                                <rect key="frame" x="16" y="54" width="167" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouq-WH-ySL">
+                                <rect key="frame" x="20" y="70" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,8 +55,21 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ouq-WH-ySL" firstAttribute="top" secondItem="tWs-g9-n5x" secondAttribute="top" constant="50" id="5Re-8z-6hv"/>
+                            <constraint firstItem="ouq-WH-ySL" firstAttribute="leading" secondItem="tWs-g9-n5x" secondAttribute="leading" constant="20" id="PZt-R1-w2z"/>
+                            <constraint firstItem="tWs-g9-n5x" firstAttribute="trailing" secondItem="ouq-WH-ySL" secondAttribute="trailing" constant="20" id="sQ1-O3-Osj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tWs-g9-n5x"/>
                     </view>
+                    <connections>
+                        <outlet property="createAnAccountButton" destination="RMo-B3-wGn" id="0M5-6X-9p4"/>
+                        <outlet property="orLabel" destination="PB5-kb-bZz" id="XRZ-aX-IP8"/>
+                        <outlet property="signInWithFacebook" destination="iMM-jg-YYa" id="jVr-rD-Zo9"/>
+                        <outlet property="signInWithGoogle" destination="G6F-BE-9u6" id="aTc-NX-qPt"/>
+                        <outlet property="termsOfServiceLabel" destination="ADv-xq-vcB" id="qFt-bB-cp8"/>
+                        <outlet property="titleLabel" destination="ouq-WH-ySL" id="jlx-DE-shw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDF-Mo-gYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

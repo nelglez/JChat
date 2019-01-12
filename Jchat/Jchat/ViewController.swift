@@ -9,10 +9,45 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var signInWithFacebook: UIButton!
+    
+    @IBOutlet weak var signInWithGoogle: UIButton!
+    
+    @IBOutlet weak var createAnAccountButton: UIButton!
+    
+    @IBOutlet weak var orLabel: UILabel!
+    
+    @IBOutlet weak var termsOfServiceLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        setupUI()
+    }
+    
+    func setupUI(){
+        let title = "Create a new account"
+        let subTitle = "\n\n Some text here..."
+        
+        //if you need formatting or inner activity you  need to use NSMutableAttributedString
+        let attributedText = NSMutableAttributedString(string: title, attributes: [NSAttributedString.Key.font : UIFont(name: "Didot", size: 28)!, NSAttributedString.Key.foregroundColor : UIColor.brown])
+        
+        let attributedSubTitle = NSMutableAttributedString(string: subTitle, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(white: 0, alpha: 0.45)])
+        
+        attributedText.append(attributedSubTitle)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5
+        
+        attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
+        
+        titleLabel.numberOfLines = 0
+        
+        titleLabel.attributedText = attributedText
+        
+        
     }
 
 
