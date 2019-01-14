@@ -14,16 +14,16 @@ extension ViewController {
         let subTitle = "\n\n Some text here..."
         
         //if you need formatting or inner activity you  need to use NSMutableAttributedString
-        let attributedText = NSMutableAttributedString(string: title, attributes: [NSAttributedString.Key.font : UIFont(name: "Didot", size: 28)!, NSAttributedString.Key.foregroundColor : UIColor.brown])
+        let attributedText = NSMutableAttributedString(string: title, attributes: [.font : UIFont(name: "Didot", size: 28)!, .foregroundColor : UIColor.brown])
         
-        let attributedSubTitle = NSMutableAttributedString(string: subTitle, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor(white: 0, alpha: 0.45)])
+        let attributedSubTitle = NSMutableAttributedString(string: subTitle, attributes: [.font : UIFont.systemFont(ofSize: 16), .foregroundColor : UIColor(white: 0, alpha: 0.45)])
         
         attributedText.append(attributedSubTitle)
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5
         
-        attributedText.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
+        attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.length))
         
         titleLabel.numberOfLines = 0
         
@@ -40,9 +40,9 @@ extension ViewController {
     func setupTermsLabel(){
         let termsOfServiceText = NSMutableAttributedString(string: """
         By clicking "Create and Account" you agree to our \n
-        """, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor : UIColor(white: 0, alpha: 0.65)])
+        """, attributes: [.font : UIFont.systemFont(ofSize: 14), .foregroundColor : UIColor(white: 0, alpha: 0.65)])
         
-        let termsOfServiceSubText = NSMutableAttributedString(string: "Terms of Service", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14), NSAttributedString.Key.foregroundColor : UIColor(white: 0, alpha: 0.65)])
+        let termsOfServiceSubText = NSMutableAttributedString(string: "Terms of Service", attributes: [.font : UIFont.boldSystemFont(ofSize: 14), .foregroundColor : UIColor(white: 0, alpha: 0.65)])
         
         termsOfServiceText.append(termsOfServiceSubText)
         

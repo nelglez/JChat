@@ -42,5 +42,9 @@ class SignInViewController: UIViewController {
         setupSignUpButton()
     }
 
+    @IBAction func dismissAction(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
 
 }

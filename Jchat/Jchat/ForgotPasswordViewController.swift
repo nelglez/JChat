@@ -28,4 +28,8 @@ class ForgotPasswordViewController: UIViewController {
         setupForgotPasswordButton()
     }
 
+    @IBAction func dismissAction(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
