@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 extension SignUpViewController {
     
@@ -93,6 +94,39 @@ extension SignUpViewController {
         
         attributedText.append(attributedSubText)
         signInButton.setAttributedTitle(attributedText, for: .normal)
+    }
+    
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func validateFields() {
+        guard let username = self.fullNameTextField.text, !username.isEmpty else {
+            ProgressHUD.showError("Please enter your full name")
+            return
+            
+        }
+        guard let email = self.emailTextField.text, !email.isEmpty else {
+            ProgressHUD.showError("Please enter and email address")
+            return
+            
+        }
+        guard let password = self.passwordTextField.text, !password.isEmpty else {
+            ProgressHUD.showError("Please enter a password")
+            return
+            
+        }
+    }
+    
+    
+    func signUp() {
+
+        Api.User.signUp(withUserName: self.fullNameTextField.text!, email: self.emailTextField.text!, password: self.passwordTextField.text!, image: self.image, onSuccess: {
+            print("Done")
+        }) { (errorMessage) in
+            print(errorMessage)
+        }
     }
 
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7A8641FA223D81F20053C022 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8641F9223D81F20053C022 /* GoogleService-Info.plist */; };
+		7A8641FC223D94230053C022 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FB223D94230053C022 /* Api.swift */; };
+		7A8641FE223D94770053C022 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FD223D94770053C022 /* UserApi.swift */; };
 		7A8ED5F821EA64A200E9EE73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED5F721EA64A200E9EE73 /* AppDelegate.swift */; };
 		7A8ED5FA21EA64A200E9EE73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED5F921EA64A200E9EE73 /* ViewController.swift */; };
 		7A8ED5FF21EA64A800E9EE73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ED5FE21EA64A800E9EE73 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* Begin PBXFileReference section */
 		27F347EF66CFC01937BCC241 /* Pods-Jchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jchat.release.xcconfig"; path = "Target Support Files/Pods-Jchat/Pods-Jchat.release.xcconfig"; sourceTree = "<group>"; };
 		7A8641F9223D81F20053C022 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7A8641FB223D94230053C022 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		7A8641FD223D94770053C022 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		7A8ED5F421EA64A200E9EE73 /* Jchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8ED5F721EA64A200E9EE73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A8ED5F921EA64A200E9EE73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				7AB9232E21EA8E1700C02CC1 /* SignInViewController+UI.swift */,
 				7AB9233021EBBEED00C02CC1 /* ForgotPasswordViewController.swift */,
 				7AB9233221EBBEFD00C02CC1 /* ForgotPasswordViewController+UI.swift */,
+				7A8641FB223D94230053C022 /* Api.swift */,
+				7A8641FD223D94770053C022 /* UserApi.swift */,
 				7A8ED60921EA64E200E9EE73 /* Welcome.storyboard */,
 				7A8ED5FE21EA64A800E9EE73 /* Assets.xcassets */,
 				7A8ED60021EA64A800E9EE73 /* LaunchScreen.storyboard */,
@@ -109,7 +115,6 @@
 				CA8E6556F44F1D048EDE7874 /* Pods-Jchat.debug.xcconfig */,
 				27F347EF66CFC01937BCC241 /* Pods-Jchat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -194,6 +199,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Jchat/Pods-Jchat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -203,6 +209,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -248,7 +255,9 @@
 				7AB9232D21EA8D1400C02CC1 /* SignInViewController.swift in Sources */,
 				7AB9232921EA7E5400C02CC1 /* SignUpViewController.swift in Sources */,
 				7A8ED5F821EA64A200E9EE73 /* AppDelegate.swift in Sources */,
+				7A8641FC223D94230053C022 /* Api.swift in Sources */,
 				7AB9232B21EA85B900C02CC1 /* SignUpViewController+UI.swift in Sources */,
+				7A8641FE223D94770053C022 /* UserApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
