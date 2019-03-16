@@ -430,6 +430,9 @@
                                     <constraint firstAttribute="height" constant="50" id="Itt-yP-vrR"/>
                                 </constraints>
                                 <state key="normal" title="Reset My Password"/>
+                                <connections>
+                                    <action selector="resetMyPasswordButtonPressed:" destination="djo-y8-NLc" eventType="touchUpInside" id="OfM-Y9-qwQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
