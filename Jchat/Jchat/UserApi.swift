@@ -48,4 +48,17 @@ class UserApi {
             }
         }
     }
+    
+    func signIn(email: String, password: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if error != nil {
+                
+                onError(error!.localizedDescription)
+                return
+            }
+            print("USER ID ***********", result?.user.uid)
+            onSuccess()
+            
+        }
+    }
 }

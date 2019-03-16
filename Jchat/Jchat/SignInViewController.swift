@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class SignInViewController: UIViewController {
     
@@ -46,5 +47,14 @@ class SignInViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-
+    @IBAction func signInButtonPressed(_ sender: UIButton) {
+        self.view.endEditing(true)
+        self.validateFields()
+        self.signIn(onSuccess: {
+            //switch view
+        }) { (errorMessage) in
+            ProgressHUD.showError(errorMessage)
+        }
+    }
+    
 }
