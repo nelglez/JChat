@@ -10,6 +10,8 @@
 		7A8641FA223D81F20053C022 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8641F9223D81F20053C022 /* GoogleService-Info.plist */; };
 		7A8641FC223D94230053C022 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FB223D94230053C022 /* Api.swift */; };
 		7A8641FE223D94770053C022 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FD223D94770053C022 /* UserApi.swift */; };
+		7A864200223D98330053C022 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FF223D98330053C022 /* StorageService.swift */; };
+		7A864202223D9BED0053C022 /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A864201223D9BED0053C022 /* Ref.swift */; };
 		7A8ED5F821EA64A200E9EE73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED5F721EA64A200E9EE73 /* AppDelegate.swift */; };
 		7A8ED5FA21EA64A200E9EE73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED5F921EA64A200E9EE73 /* ViewController.swift */; };
 		7A8ED5FF21EA64A800E9EE73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ED5FE21EA64A800E9EE73 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		7A8641F9223D81F20053C022 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A8641FB223D94230053C022 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		7A8641FD223D94770053C022 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		7A8641FF223D98330053C022 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		7A864201223D9BED0053C022 /* Ref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ref.swift; sourceTree = "<group>"; };
 		7A8ED5F421EA64A200E9EE73 /* Jchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8ED5F721EA64A200E9EE73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A8ED5F921EA64A200E9EE73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 				7AB9233221EBBEFD00C02CC1 /* ForgotPasswordViewController+UI.swift */,
 				7A8641FB223D94230053C022 /* Api.swift */,
 				7A8641FD223D94770053C022 /* UserApi.swift */,
+				7A8641FF223D98330053C022 /* StorageService.swift */,
+				7A864201223D9BED0053C022 /* Ref.swift */,
 				7A8ED60921EA64E200E9EE73 /* Welcome.storyboard */,
 				7A8ED5FE21EA64A800E9EE73 /* Assets.xcassets */,
 				7A8ED60021EA64A800E9EE73 /* LaunchScreen.storyboard */,
@@ -248,10 +254,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB9233121EBBEED00C02CC1 /* ForgotPasswordViewController.swift in Sources */,
+				7A864200223D98330053C022 /* StorageService.swift in Sources */,
 				7AB9232721EA7BB900C02CC1 /* ViewController+UI.swift in Sources */,
 				7AB9232F21EA8E1700C02CC1 /* SignInViewController+UI.swift in Sources */,
 				7A8ED5FA21EA64A200E9EE73 /* ViewController.swift in Sources */,
 				7AB9233321EBBEFD00C02CC1 /* ForgotPasswordViewController+UI.swift in Sources */,
+				7A864202223D9BED0053C022 /* Ref.swift in Sources */,
 				7AB9232D21EA8D1400C02CC1 /* SignInViewController.swift in Sources */,
 				7AB9232921EA7E5400C02CC1 /* SignUpViewController.swift in Sources */,
 				7A8ED5F821EA64A200E9EE73 /* AppDelegate.swift in Sources */,
