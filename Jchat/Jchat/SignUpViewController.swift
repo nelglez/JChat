@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
     
@@ -56,13 +57,20 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        Auth.auth().createUser(withEmail: "testing@test.com", password: "123456") { (result, error) in
+        Auth.auth().createUser(withEmail: "testing2@test.com", password: "123456") { (result, error) in
             if error != nil {
                 print(error!.localizedDescription)
                 return
             }
             if let result = result {
                 print(result.user.email)
+                let dict: Dictionary<String, Any> = ["uid": result.user.uid, "Email": result.user.email, "profileImageUrl": "", "status": "Welcome to Jchat" ]
+                
+                Database.database().reference().child("users").child(result.user.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
+                    if error == nil {
+                        print("Done")
+                    }
+                })
             }
         }
     }
