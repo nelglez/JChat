@@ -100,9 +100,11 @@ extension SignUpViewController {
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            image = imageSelected
             avatar.image = imageSelected
         }
         if let imageSelectedOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            image = imageSelectedOriginal
             avatar.image = imageSelectedOriginal
         }
         picker.dismiss(animated: true, completion: nil)

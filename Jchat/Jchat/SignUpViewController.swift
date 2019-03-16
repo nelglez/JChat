@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class SignUpViewController: UIViewController {
     
@@ -32,7 +33,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var signInButton: UIButton!
     
-    
+    var image: UIImage? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,20 +58,49 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        Auth.auth().createUser(withEmail: "testing2@test.com", password: "123456") { (result, error) in
+        guard let imageSelected = self.image else {
+            print("Avatar is nil")
+            return
+        }
+        
+        guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {return}
+        
+        Auth.auth().createUser(withEmail: "testing3@test.com", password: "123456") { (result, error) in
             if error != nil {
                 print(error!.localizedDescription)
                 return
             }
             if let result = result {
                 print(result.user.email)
-                let dict: Dictionary<String, Any> = ["uid": result.user.uid, "Email": result.user.email, "profileImageUrl": "", "status": "Welcome to Jchat" ]
+                var dict: Dictionary<String, Any> = ["uid": result.user.uid, "Email": result.user.email, "profileImageUrl": "", "status": "Welcome to Jchat" ]
                 
-                Database.database().reference().child("users").child(result.user.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
-                    if error == nil {
-                        print("Done")
+                let storageRef = Storage.storage().reference(forURL: "gs://jchat-cc6b0.appspot.com")
+                
+                let storageProfileImageRef = storageRef.child("profile").child(result.user.uid)
+                
+                let metaData = StorageMetadata()
+                metaData.contentType = "image/jpg"
+                
+                storageProfileImageRef.putData(imageData, metadata: metaData, completion: { (storageMetaData, error) in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                        return
                     }
+                    
+                    storageProfileImageRef.downloadURL(completion: { (url, error) in
+                        if let metaImageUrl = url?.absoluteString {
+                            print(metaImageUrl)
+                            dict["profileImageUrl"] = metaImageUrl
+                            
+                            Database.database().reference().child("users").child(result.user.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
+                                if error == nil {
+                                    print("Done")
+                                }
+                            })
+                        }
+                    })
                 })
+                
             }
         }
     }
