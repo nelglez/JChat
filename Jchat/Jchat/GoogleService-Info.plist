@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>105615077922-0bkgc3ocfd2oa2llook1c5lc6n23m1gk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.105615077922-0bkgc3ocfd2oa2llook1c5lc6n23m1gk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCSU9bbhhVvECuN4QwYXcK0fxEQmdWD8PU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>105615077922</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.nelsongonzalez.Jchat</string>
+	<key>PROJECT_ID</key>
+	<string>jchat-cc6b0</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jchat-cc6b0.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:105615077922:ios:9af79d16f6827b3d</string>
+	<key>DATABASE_URL</key>
+	<string>https://jchat-cc6b0.firebaseio.com</string>
+</dict>
+</plist>
