@@ -34,6 +34,7 @@ class ChatViewController: UIViewController {
         setupInputContainer()
         setupNavigationBar()
         setupTableView()
+        setupPicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,6 +122,10 @@ class ChatViewController: UIViewController {
         Api.Message.sendMessage(from: Api.User.currentUserId, to: partnerId, value: value)
     }
     
+    func setupPicker() {
+        picker.delegate = self
+    }
+    
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         if let text = inputTextView.text, text != "" {
             inputTextView.text = ""
@@ -189,5 +194,43 @@ extension ChatViewController: UITextViewDelegate {
             sendButton.setTitleColor(.lightGray, for: .normal)
             placeHolderLabel.isHidden = false
         }
+    }
+}
+
+
+extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let videoUrl = info[.mediaURL] as? URL {
+            handleVideoSelectedForUrl(videoUrl)
+        } else {
+            handelImageSelectedForInfo(info)
+        }
+    }
+    
+    func handleVideoSelectedForUrl(_ url: URL) {
+      //save video data
+    }
+    
+    func handelImageSelectedForInfo(_ info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImageFromPicker: UIImage?
+        
+        if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            selectedImageFromPicker = imageSelected
+        }
+        if let imageSelectedOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            selectedImageFromPicker = imageSelectedOriginal
+            
+        }
+        //save photo data
+        let imageName = NSUUID().uuidString
+        StorageService.savePhotoMessage(image: selectedImageFromPicker, id: imageName, onSuccess: { (anyValue) in
+            if let dict = anyValue as? [String: Any] {
+                self.sendToFirebase(dict: dict)
+            }
+        }) { (error) in
+            
+        }
+        self.picker.dismiss(animated: true, completion: nil)
     }
 }
