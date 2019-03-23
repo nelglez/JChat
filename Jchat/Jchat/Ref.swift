@@ -25,6 +25,7 @@ let ERROR_EMPTY_EMAIL_RESET_PASSWORD = "Please add your email address to reset y
 let SUCCESS_EMAIL_RESET = "We just sent you a password reset email. Please check your email and follow the instructions to reset your password."
 let IDENTIFIER_TABBAR = "TabBarVC"
 let IDENTIFIER_WELCOME = "WelcomeVC"
+let IDENTIFIER_CELL_USERS = "userCell"
 
 
 class Ref {

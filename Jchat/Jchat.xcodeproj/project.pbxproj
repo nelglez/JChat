@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7A7866AB2246759B00C0B296 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7866AA2246759B00C0B296 /* MessagesTableViewController.swift */; };
+		7A7866AD2246791900C0B296 /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7866AC2246791900C0B296 /* PeopleTableViewController.swift */; };
+		7A7866AF22467A7200C0B296 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7866AE22467A7200C0B296 /* UserTableViewCell.swift */; };
 		7A8641FA223D81F20053C022 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8641F9223D81F20053C022 /* GoogleService-Info.plist */; };
 		7A8641FC223D94230053C022 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FB223D94230053C022 /* Api.swift */; };
 		7A8641FE223D94770053C022 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FD223D94770053C022 /* UserApi.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		27F347EF66CFC01937BCC241 /* Pods-Jchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jchat.release.xcconfig"; path = "Target Support Files/Pods-Jchat/Pods-Jchat.release.xcconfig"; sourceTree = "<group>"; };
 		7A7866AA2246759B00C0B296 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
+		7A7866AC2246791900C0B296 /* PeopleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
+		7A7866AE22467A7200C0B296 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		7A8641F9223D81F20053C022 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A8641FB223D94230053C022 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		7A8641FD223D94770053C022 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				7AB9233021EBBEED00C02CC1 /* ForgotPasswordViewController.swift */,
 				7AB9233221EBBEFD00C02CC1 /* ForgotPasswordViewController+UI.swift */,
 				7A7866AA2246759B00C0B296 /* MessagesTableViewController.swift */,
+				7A7866AC2246791900C0B296 /* PeopleTableViewController.swift */,
+				7A7866AE22467A7200C0B296 /* UserTableViewCell.swift */,
 				7A8641FB223D94230053C022 /* Api.swift */,
 				7A8641FD223D94770053C022 /* UserApi.swift */,
 				7A8641FF223D98330053C022 /* StorageService.swift */,
@@ -260,6 +266,8 @@
 				7A864200223D98330053C022 /* StorageService.swift in Sources */,
 				7AB9232721EA7BB900C02CC1 /* ViewController+UI.swift in Sources */,
 				7AB9232F21EA8E1700C02CC1 /* SignInViewController+UI.swift in Sources */,
+				7A7866AF22467A7200C0B296 /* UserTableViewCell.swift in Sources */,
+				7A7866AD2246791900C0B296 /* PeopleTableViewController.swift in Sources */,
 				7A8ED5FA21EA64A200E9EE73 /* ViewController.swift in Sources */,
 				7AB9233321EBBEFD00C02CC1 /* ForgotPasswordViewController+UI.swift in Sources */,
 				7A864202223D9BED0053C022 /* Ref.swift in Sources */,
