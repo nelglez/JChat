@@ -10,13 +10,25 @@ import UIKit
 
 class ChatViewController: UIViewController {
     
+    @IBOutlet weak var mediaButton: UIButton!
+    @IBOutlet weak var audioButton: UIButton!
+    @IBOutlet weak var inputTextView: UITextView!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     var imagePartner: UIImage!
+    var partnerUsername: String!
     var avatarImageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+    var topLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+    var placeHolderLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       setupNavigationBar()
+        setupInputContainer()
+        setupNavigationBar()
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,17 +53,76 @@ class ChatViewController: UIViewController {
         
         let rightBarButton = UIBarButtonItem(customView: containerView)
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        topLabel.textAlignment = .center
+        topLabel.numberOfLines = 0
+        
+        let attributed = NSMutableAttributedString(string: partnerUsername + "\n", attributes: [.font : UIFont.systemFont(ofSize: 17), .foregroundColor : UIColor.black])
+        
+        attributed.append(NSAttributedString(string: "Active", attributes: [.font : UIFont.systemFont(ofSize: 13), .foregroundColor : UIColor.green]))
+        
+        topLabel.attributedText = attributed
+        
+        self.navigationItem.titleView = topLabel
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupInputContainer() {
+        let mediaImage = UIImage(named: "attachment")?.withRenderingMode(.alwaysTemplate)
+        mediaButton.setImage(mediaImage, for: .normal)
+        mediaButton.tintColor = .lightGray
+        
+        let micImage = UIImage(named: "mic")?.withRenderingMode(.alwaysTemplate)
+        audioButton.setImage(micImage, for: .normal)
+        audioButton.tintColor = .lightGray
+        
+        setupInputTextView()
     }
-    */
+    
+    func setupInputTextView() {
+        
+        inputTextView.delegate = self
+        
+        placeHolderLabel.isHidden = false
+        
+        let placeholderX: CGFloat = self.view.frame.size.width / 75
+        let placeholderY: CGFloat = 0
+        let placeholderWidth: CGFloat = inputTextView.bounds.width - placeholderX
+        let placeholderHeight: CGFloat = inputTextView.bounds.height
+        
+        let placeholderFontSize = self.view.frame.size.width / 25
+        
+        placeHolderLabel.frame = CGRect(x: placeholderX, y: placeholderY, width: placeholderWidth, height: placeholderHeight)
+        
+        placeHolderLabel.text = "Write a message..."
+        placeHolderLabel.font = UIFont(name: "HelveticaNeue", size: placeholderFontSize)
+        placeHolderLabel.textColor = .lightGray
+        placeHolderLabel.textAlignment = .left
+        
+        inputTextView.addSubview(placeHolderLabel)
+    }
+    
+    func setupTableView() {
+        tableView.tableFooterView = UIView()
+    }
+    
+    @IBAction func sendButtonPressed(_ sender: UIButton) {
+       
+    }
+    
+}
 
+extension ChatViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let spacing = CharacterSet.whitespacesAndNewlines
+        if !textView.text.trimmingCharacters(in: spacing).isEmpty {
+            let text = textView.text.trimmingCharacters(in: spacing)
+            sendButton.isEnabled = true
+            sendButton.setTitleColor(.black, for: .normal)
+            placeHolderLabel.isHidden = true
+        } else {
+            sendButton.isEnabled = false
+            sendButton.setTitleColor(.lightGray, for: .normal)
+            placeHolderLabel.isHidden = false
+        }
+    }
 }

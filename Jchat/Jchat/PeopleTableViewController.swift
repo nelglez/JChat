@@ -19,6 +19,7 @@ class PeopleTableViewController: UITableViewController, UISearchResultsUpdating 
         
         setupSearchBarController()
         setupNavigationBar()
+        setupTableView()
         
         observeUsers()
 
@@ -63,6 +64,10 @@ class PeopleTableViewController: UITableViewController, UISearchResultsUpdating 
             self.tableView.reloadData()
         }
     }
+    
+    func setupTableView() {
+        tableView.tableFooterView = UIView()
+    }
 
     // MARK: - Table view data source
 
@@ -95,6 +100,7 @@ class PeopleTableViewController: UITableViewController, UISearchResultsUpdating 
                let chatVC = storyBoard.instantiateViewController(withIdentifier: IDENTIFIER_CHAT) as! ChatViewController
             
             chatVC.imagePartner = cell.avatar.image
+            chatVC.partnerUsername = cell.usernameLabel.text
             
             self.navigationController?.pushViewController(chatVC, animated: true)
         }
