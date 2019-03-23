@@ -19,6 +19,11 @@ class UserTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        //gets called before the cell loads
+        
+        avatar.layer.cornerRadius = 30
+        avatar.clipsToBounds = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,6 +35,7 @@ class UserTableViewCell: UITableViewCell {
     func loadData(_ user: User) {
         self.usernameLabel.text = user.username
         self.statusLabel.text = user.status
+        self.avatar.loadImage(user.profileImageUrl)
     }
 
 }
