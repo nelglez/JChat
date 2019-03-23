@@ -14,20 +14,16 @@ class PeopleTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        Ref().databaseUsers.observe(.childAdded) { (snapshot) in
-            if let dict = snapshot.value as? Dictionary<String, Any> {
-//                let email = dict["email"] as! String
-//                let username = dict["username"] as! String
-//                print(email)
-//                print(username)
-                if let user = User.transformUser(dict: dict) {
-                self.users.append(user)
-                }
-                self.tableView.reloadData()
-            }
-        }
         
+        observeUsers()
+
+    }
+    
+    func observeUsers() {
+        Api.User.observeUsers { (user) in
+            self.users.append(user)
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source

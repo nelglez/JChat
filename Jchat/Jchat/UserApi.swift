@@ -84,4 +84,17 @@ class UserApi {
         
         (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
     }
+    
+    func observeUsers(onSuccess: @escaping(UserCompletion)) {
+        Ref().databaseUsers.observe(.childAdded) { (snapshot) in
+            if let dict = snapshot.value as? Dictionary<String, Any> {
+                if let user = User.transformUser(dict: dict) {
+                    onSuccess(user)
+                }
+                
+            }
+        }
+    }
 }
+
+typealias UserCompletion = (User) -> Void
