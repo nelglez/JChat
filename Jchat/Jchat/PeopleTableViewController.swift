@@ -8,15 +8,52 @@
 
 import UIKit
 
-class PeopleTableViewController: UITableViewController {
+class PeopleTableViewController: UITableViewController, UISearchResultsUpdating {
     
     var users: [User] = []
+    var searchController: UISearchController = UISearchController(searchResultsController: nil)
+    var searchResults: [User] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupSearchBarController()
+        setupNavigationBar()
+        
         observeUsers()
 
+    }
+    
+    func setupSearchBarController() {
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = true
+       searchController.searchBar.placeholder = "Search users..."
+       searchController.searchBar.barTintColor = .white
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.title = "People"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.searchBar.text == nil || searchController.searchBar.text!.isEmpty {
+            view.endEditing(true)
+        } else {
+            let textLowercased = searchController.searchBar.text!.lowercased()
+            filterContent(for: textLowercased)
+        }
+        tableView.reloadData()
+    }
+    
+    func  filterContent(for searchText: String) {
+        
+        searchResults = self.users.filter {
+            return $0.username.lowercased().range(of: searchText) != nil
+        }
     }
     
     func observeUsers() {
@@ -30,15 +67,15 @@ class PeopleTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return self.users.count
+    
+        return searchController.isActive ? searchResults.count : self.users.count
     }
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIER_CELL_USERS, for: indexPath) as! UserTableViewCell
 
-        let user = users[indexPath.row]
+        let user = searchController.isActive ?  searchResults[indexPath.row] : users[indexPath.row]
         
         cell.loadData(user)
         
