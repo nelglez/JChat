@@ -19,7 +19,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        configureInitialViewController()
+        
         return true
+    }
+    
+    func configureInitialViewController() {
+        var initialVC: UIViewController
+        let storyBoard = UIStoryboard(name: "Welcome", bundle: nil)
+        if Auth.auth().currentUser != nil {
+            initialVC = storyBoard.instantiateViewController(withIdentifier: IDENTIFIER_TABBAR)
+        } else {
+            initialVC = storyBoard.instantiateViewController(withIdentifier: IDENTIFIER_WELCOME)
+        }
+        
+        window?.rootViewController = initialVC
+        window?.makeKeyAndVisible()
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
