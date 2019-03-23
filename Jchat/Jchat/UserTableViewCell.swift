@@ -14,6 +14,7 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
+    var user: User!
     
 
     override func awakeFromNib() {
@@ -33,6 +34,7 @@ class UserTableViewCell: UITableViewCell {
     }
     
     func loadData(_ user: User) {
+        self.user = user
         self.usernameLabel.text = user.username
         self.statusLabel.text = user.status
         self.avatar.loadImage(user.profileImageUrl)

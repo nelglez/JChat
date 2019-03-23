@@ -19,6 +19,7 @@ class ChatViewController: UIViewController {
     
     var imagePartner: UIImage!
     var partnerUsername: String!
+    var partnerId: String!
     var avatarImageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
     var topLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
     var placeHolderLabel = UILabel()
@@ -105,8 +106,24 @@ class ChatViewController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
+    func sendToFirebase(dict: Dictionary<String, Any>) {
+        let date: Double = Date().timeIntervalSince1970
+        var value = dict
+        value["from"] = Api.User.currentUserId
+        value["to"] = partnerId
+        value["date"] = date
+        value["read"] = true
+        
+        Api.Message.sendMessage(from: Api.User.currentUserId, to: partnerId, value: value)
+    }
+    
     @IBAction func sendButtonPressed(_ sender: UIButton) {
-       
+        if let text = inputTextView.text, text != "" {
+            inputTextView.text = ""
+            self.textViewDidChange(inputTextView)
+            sendToFirebase(dict: ["text" : text as Any])
+            
+        }
     }
     
 }

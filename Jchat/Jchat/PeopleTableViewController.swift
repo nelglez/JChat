@@ -101,6 +101,7 @@ class PeopleTableViewController: UITableViewController, UISearchResultsUpdating 
             
             chatVC.imagePartner = cell.avatar.image
             chatVC.partnerUsername = cell.usernameLabel.text
+            chatVC.partnerId = cell.user.uid
             
             self.navigationController?.pushViewController(chatVC, animated: true)
         }

@@ -13,6 +13,12 @@ import FirebaseStorage
 import ProgressHUD
 
 class UserApi {
+    
+    var currentUserId: String {
+        return Auth.auth().currentUser != nil ? Auth.auth().currentUser!.uid : ""
+    }
+    
+    
     func signUp(withUserName username: String, email: String, password: String, image: UIImage?, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
