@@ -243,6 +243,9 @@
                                             <constraint firstAttribute="height" constant="32" id="hcA-Ff-Zn2"/>
                                         </constraints>
                                         <state key="normal" image="attachment"/>
+                                        <connections>
+                                            <action selector="mediaButtonPressed:" destination="x0g-sE-JEx" eventType="touchUpInside" id="FDX-4e-9DA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmh-uM-ZVQ">
                                         <rect key="frame" x="48" y="5" width="32" height="32"/>

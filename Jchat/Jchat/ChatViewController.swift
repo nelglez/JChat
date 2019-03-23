@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MobileCoreServices
+import AVFoundation
 
 class ChatViewController: UIViewController {
     
@@ -23,6 +25,8 @@ class ChatViewController: UIViewController {
     var avatarImageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
     var topLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
     var placeHolderLabel = UILabel()
+    
+    var picker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +128,50 @@ class ChatViewController: UIViewController {
             sendToFirebase(dict: ["text" : text as Any])
             
         }
+    }
+    @IBAction func mediaButtonPressed(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "JChat", message: "Select Source", preferredStyle: .actionSheet)
+        
+        let camera = UIAlertAction(title: "Take a picture", style: .default) { (_) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            self.picker.sourceType = .camera
+            self.present(self.picker, animated: true, completion: nil)
+            } else {
+                //alert the user
+            }
+        }
+        
+        let library = UIAlertAction(title: "Choose an Image or a Video", style: .default) { (_) in
+             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            self.picker.sourceType = .photoLibrary
+                self.picker.mediaTypes = [String(kUTTypeImage), String(kUTTypeMovie)]
+            self.present(self.picker, animated: true, completion: nil)
+             } else {
+                //alert the user
+            }
+        }
+        
+        let videoCamera = UIAlertAction(title: "Take a Video", style: .default) { (_) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                self.picker.sourceType = .camera
+                self.picker.mediaTypes = [String(kUTTypeMovie)]
+                self.picker.videoExportPreset = AVAssetExportPresetPassthrough
+                self.picker.videoMaximumDuration = 30
+                self.present(self.picker, animated: true, completion: nil)
+            } else {
+                //alert the user
+            }
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(camera)
+        alert.addAction(library)
+        alert.addAction(videoCamera)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
     
 }
