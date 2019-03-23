@@ -52,6 +52,7 @@ class SignInViewController: UIViewController {
         self.validateFields()
         self.signIn(onSuccess: {
             //switch view
+             (UIApplication.shared.delegate as! AppDelegate).configureInitialViewController()
         }) { (errorMessage) in
             ProgressHUD.showError(errorMessage)
         }
