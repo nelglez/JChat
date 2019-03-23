@@ -9,10 +9,24 @@
 import UIKit
 
 class PeopleTableViewController: UITableViewController {
+    
+    var users: [User] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        Ref().databaseUsers.observe(.childAdded) { (snapshot) in
+            if let dict = snapshot.value as? Dictionary<String, Any> {
+//                let email = dict["email"] as! String
+//                let username = dict["username"] as! String
+//                print(email)
+//                print(username)
+                if let user = User.transformUser(dict: dict) {
+                self.users.append(user)
+                }
+                self.tableView.reloadData()
+            }
+        }
         
     }
 
@@ -21,16 +35,16 @@ class PeopleTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return self.users.count
     }
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIER_CELL_USERS, for: indexPath) as! UserTableViewCell
 
-        cell.usernameLabel.text = "Nelson Gonzalez"
-        cell.statusLabel.text = "Welcome to JChat"
+        let user = users[indexPath.row]
         
+        cell.loadData(user)
         
         return cell
     }

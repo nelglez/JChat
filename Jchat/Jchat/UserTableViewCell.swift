@@ -26,5 +26,10 @@ class UserTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func loadData(_ user: User) {
+        self.usernameLabel.text = user.username
+        self.statusLabel.text = user.status
+    }
 
 }
