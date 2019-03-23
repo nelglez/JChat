@@ -11,6 +11,7 @@ import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
 import ProgressHUD
+import AVFoundation
 
 class StorageService {
     static func savePhoto(username: String, uid: String, data: Data, metaData: StorageMetadata, storageProfileRef: StorageReference, dict: Dictionary<String, Any>, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
@@ -66,6 +67,48 @@ class StorageService {
                     })
                 }
             }
+        }
+    }
+    
+    static func saveVideoMessages(url: URL, id: String, onSuccess: @escaping(_ value: Any) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        
+        let ref = Ref().storageSpecificVideoMessage(id: id)
+        ref.putFile(from: url, metadata: nil) { (metaData, error) in
+            if error != nil {
+                onError(error!.localizedDescription)
+            }
+            ref.downloadURL(completion: { (videoUrl, error) in
+                if let thumbnailImage = self.thumbnailImageForFileUrl(url) {
+                    StorageService.savePhotoMessage(image: thumbnailImage, id: id, onSuccess: { (value) in
+                        if let dict = value as? Dictionary<String, Any> {
+                            var dictValue = dict
+                            if let videoUrlString = videoUrl?.absoluteString {
+                                dictValue["videoUrl"] = videoUrlString
+                            }
+                            onSuccess(dictValue)
+                        }
+                    }, onError: { (error) in
+                        onError(error)
+                    })
+                }
+                
+            })
+        }
+    }
+    
+    static func thumbnailImageForFileUrl(_ url: URL) -> UIImage? {
+        let asset = AVAsset(url: url)
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+        imageGenerator.appliesPreferredTrackTransform = true
+        
+        var time = asset.duration
+        time.value = min(time.value, 2)
+        do {
+            let imageRef = try imageGenerator.copyCGImage(at: time, actualTime: nil)
+            return UIImage(cgImage: imageRef)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            return nil
         }
     }
 }
