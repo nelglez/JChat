@@ -35,6 +35,7 @@ class ChatViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         setupPicker()
+        observeMessages()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +47,15 @@ class ChatViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    func observeMessages() {
+        Api.Message.receiveMessage(from: Api.User.currentUserId, to: partnerId) { (message) in
+            <#code#>
+        }
+        Api.Message.receiveMessage(from: partnerId, to: Api.User.currentUserId) { (message) in
+            <#code#>
+        }
     }
     
     func setupNavigationBar() {
