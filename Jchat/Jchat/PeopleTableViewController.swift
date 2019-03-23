@@ -30,6 +30,7 @@ class PeopleTableViewController: UITableViewController, UISearchResultsUpdating 
        searchController.searchBar.placeholder = "Search users..."
        searchController.searchBar.barTintColor = .white
         searchController.obscuresBackgroundDuringPresentation = false
+        definesPresentationContext = true
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
     }
@@ -86,16 +87,17 @@ class PeopleTableViewController: UITableViewController, UISearchResultsUpdating 
         return 94
     }
 
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? UserTableViewCell {
+            
+            let storyBoard = UIStoryboard(name: "Welcome", bundle: nil)
+            
+               let chatVC = storyBoard.instantiateViewController(withIdentifier: IDENTIFIER_CHAT) as! ChatViewController
+            
+            chatVC.imagePartner = cell.avatar.image
+            
+            self.navigationController?.pushViewController(chatVC, animated: true)
+        }
     }
-    */
 
 }

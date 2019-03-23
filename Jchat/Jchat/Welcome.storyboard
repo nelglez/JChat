@@ -214,6 +214,43 @@
             </objects>
             <point key="canvasLocation" x="1488.8" y="1563.8680659670167"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="wna-t6-Jam">
+            <objects>
+                <viewController storyboardIdentifier="ChatVC" id="x0g-sE-JEx" customClass="ChatViewController" customModule="Jchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pbu-YK-pyU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kUk-ue-oXt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQg-te-w1b">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8Ap-ej-qzK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kUk-ue-oXt" firstAttribute="trailing" secondItem="Isq-HQ-xol" secondAttribute="trailing" id="8LT-Uf-9Cx"/>
+                            <constraint firstItem="kUk-ue-oXt" firstAttribute="leading" secondItem="Isq-HQ-xol" secondAttribute="leading" id="Am1-U2-U4T"/>
+                            <constraint firstItem="vQg-te-w1b" firstAttribute="leading" secondItem="Isq-HQ-xol" secondAttribute="leading" id="KkT-2t-wi7"/>
+                            <constraint firstItem="Isq-HQ-xol" firstAttribute="trailing" secondItem="vQg-te-w1b" secondAttribute="trailing" id="L1V-U8-HPa"/>
+                            <constraint firstItem="kUk-ue-oXt" firstAttribute="top" secondItem="pbu-YK-pyU" secondAttribute="top" id="fs2-5G-euj"/>
+                            <constraint firstItem="vQg-te-w1b" firstAttribute="top" secondItem="kUk-ue-oXt" secondAttribute="bottom" id="tbl-J2-VcL"/>
+                            <constraint firstItem="Isq-HQ-xol" firstAttribute="bottom" secondItem="vQg-te-w1b" secondAttribute="bottom" id="yll-vx-Zy7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Isq-HQ-xol"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TL0-td-JRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2253.5999999999999" y="1255.3223388305848"/>
+        </scene>
         <!--Me-->
         <scene sceneID="ecF-X4-rvD">
             <objects>

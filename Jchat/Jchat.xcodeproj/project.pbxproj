@@ -12,6 +12,7 @@
 		7A7866AF22467A7200C0B296 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7866AE22467A7200C0B296 /* UserTableViewCell.swift */; };
 		7A7866B122467F4300C0B296 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7866B022467F4300C0B296 /* User.swift */; };
 		7A7866B3224683AC00C0B296 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7866B2224683AC00C0B296 /* Extension.swift */; };
+		7A7866B5224697C300C0B296 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7866B4224697C300C0B296 /* ChatViewController.swift */; };
 		7A8641FA223D81F20053C022 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8641F9223D81F20053C022 /* GoogleService-Info.plist */; };
 		7A8641FC223D94230053C022 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FB223D94230053C022 /* Api.swift */; };
 		7A8641FE223D94770053C022 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FD223D94770053C022 /* UserApi.swift */; };
@@ -39,6 +40,7 @@
 		7A7866AE22467A7200C0B296 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		7A7866B022467F4300C0B296 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7A7866B2224683AC00C0B296 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		7A7866B4224697C300C0B296 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		7A8641F9223D81F20053C022 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A8641FB223D94230053C022 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		7A8641FD223D94770053C022 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				7A7866AA2246759B00C0B296 /* MessagesTableViewController.swift */,
 				7A7866AC2246791900C0B296 /* PeopleTableViewController.swift */,
 				7A7866AE22467A7200C0B296 /* UserTableViewCell.swift */,
+				7A7866B4224697C300C0B296 /* ChatViewController.swift */,
 				7A8641FB223D94230053C022 /* Api.swift */,
 				7A8641FD223D94770053C022 /* UserApi.swift */,
 				7A8641FF223D98330053C022 /* StorageService.swift */,
@@ -281,6 +284,7 @@
 				7AB9233321EBBEFD00C02CC1 /* ForgotPasswordViewController+UI.swift in Sources */,
 				7A7866B3224683AC00C0B296 /* Extension.swift in Sources */,
 				7A864202223D9BED0053C022 /* Ref.swift in Sources */,
+				7A7866B5224697C300C0B296 /* ChatViewController.swift in Sources */,
 				7AB9232D21EA8D1400C02CC1 /* SignInViewController.swift in Sources */,
 				7AB9232921EA7E5400C02CC1 /* SignUpViewController.swift in Sources */,
 				7A7866AB2246759B00C0B296 /* MessagesTableViewController.swift in Sources */,
