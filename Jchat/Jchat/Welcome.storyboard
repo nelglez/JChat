@@ -243,9 +243,6 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOb-SN-E5H">
                                                     <rect key="frame" x="55" y="12" width="312" height="80.5"/>
                                                     <subviews>
-                                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RMk-qd-cBM">
-                                                            <rect key="frame" x="146" y="30.5" width="20" height="20"/>
-                                                        </activityIndicatorView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXc-5h-NQz">
                                                             <rect key="frame" x="15" y="8" width="282" height="52.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -267,7 +264,13 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5G-g0-VfH">
                                                             <rect key="frame" x="257" y="5" width="50" height="50"/>
                                                             <state key="normal" image="play"/>
+                                                            <connections>
+                                                                <action selector="playButtonPressed:" destination="ICP-V9-JQH" eventType="touchUpInside" id="pL0-yG-oqn"/>
+                                                            </connections>
                                                         </button>
+                                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RMk-qd-cBM">
+                                                            <rect key="frame" x="146" y="30.5" width="20" height="20"/>
+                                                        </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>

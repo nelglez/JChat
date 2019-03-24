@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MessageTableViewCell: UITableViewCell {
     
@@ -22,6 +23,13 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet weak var bubbleRightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
+    
+    var playerLayer: AVPlayerLayer?
+    var player: AVPlayer?
+    var message: Message!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,6 +47,10 @@ class MessageTableViewCell: UITableViewCell {
         profileImage.isHidden = true
         textMessageLabel.isHidden = true
         
+        activityIndicatorView.isHidden = true
+        activityIndicatorView.stopAnimating()
+        activityIndicatorView.style = .whiteLarge
+        
     }
     
     //called just before the cell is returned. good place to clean up ui elements before its content
@@ -48,10 +60,28 @@ class MessageTableViewCell: UITableViewCell {
         photoMessage.isHidden = true
         profileImage.isHidden = true
         textMessageLabel.isHidden = true
+        
+        if observation != nil {
+            stopObserver()
+        }
+        playerLayer?.removeFromSuperlayer()
+        player?.pause()
+        playButton.isHidden = false
+        activityIndicatorView.isHidden = true
+        activityIndicatorView.stopAnimating()
+        
+        
+    }
+    
+    func stopObserver() {
+        player?.removeObserver(self, forKeyPath: "status")
+        observation = nil
     }
     
     func configureCell(uid: String, message: Message, image: UIImage) {
+        self.message = message
         let text = message.text
+        
         if !text.isEmpty {
             textMessageLabel.isHidden = false
             textMessageLabel.text = message.text
@@ -91,7 +121,49 @@ class MessageTableViewCell: UITableViewCell {
      
         dateLabel.text = dateString
     }
-
+    
+    var observation: Any? = nil
+    
+    func handlePlay() {
+        let videoUrl = message.videoUrl
+        if videoUrl.isEmpty {
+            return
+        }
+        if let url = URL(string: videoUrl) {
+            activityIndicatorView.isHidden = false
+            activityIndicatorView.startAnimating()
+            player = AVPlayer(url: url)
+            playerLayer = AVPlayerLayer(player: player)
+            playerLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            playerLayer?.frame = photoMessage.frame
+            observation = player?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
+            bubbleView.layer.addSublayer(playerLayer!)
+            player?.play()
+            playButton.isHidden = true
+        }
+        
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "status" {
+            let status: AVPlayer.Status = player!.status
+            switch status {
+            case AVPlayer.Status.readyToPlay:
+                activityIndicatorView.isHidden = true
+                activityIndicatorView.stopAnimating()
+                break
+            case AVPlayer.Status.unknown, AVPlayer.Status.failed:
+                break
+            }
+        }
+    }
+    
+    
+    @IBAction func playButtonPressed(_ sender: UIButton) {
+        
+        handlePlay()
+    }
+    
 }
 
 
