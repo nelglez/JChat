@@ -17,6 +17,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+   
     
     
     var imagePartner: UIImage!
@@ -27,6 +28,8 @@ class ChatViewController: UIViewController {
     var placeHolderLabel = UILabel()
     
     var picker = UIImagePickerController()
+    
+    var messages = [Message]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +54,19 @@ class ChatViewController: UIViewController {
     
     func observeMessages() {
         Api.Message.receiveMessage(from: Api.User.currentUserId, to: partnerId) { (message) in
-            <#code#>
+            self.messages.append(message)
+            self.sortMessages()
         }
         Api.Message.receiveMessage(from: partnerId, to: Api.User.currentUserId) { (message) in
-            <#code#>
+            self.messages.append(message)
+            self.sortMessages()
+        }
+    }
+    
+    func sortMessages() {
+       messages = messages.sorted(by: {$0.date < $1.date })
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
     
@@ -119,6 +131,8 @@ class ChatViewController: UIViewController {
     
     func setupTableView() {
         tableView.tableFooterView = UIView()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     func sendToFirebase(dict: Dictionary<String, Any>) {
@@ -252,4 +266,40 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
         }
         self.picker.dismiss(animated: true, completion: nil)
     }
+}
+
+extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! MessageTableViewCell
+        //play button should only appear in video messages.
+        cell.playButton.isHidden = messages[indexPath.row].videoUrl == ""
+        
+        cell.configureCell(uid: Api.User.currentUserId, message: messages[indexPath.row], image: imagePartner)
+        
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var height: CGFloat = 0
+        let message = messages[indexPath.row]
+        let text = message.text
+        if !text.isEmpty {
+            height = text.estimateFrameForText(text).height + 60
+        }
+        
+        let heightMessage = message.height
+        let widthMessage = message.width
+        
+        if heightMessage != 0, widthMessage != 0 {
+            height = CGFloat(heightMessage / widthMessage * 250)
+        }
+        return height
+    }
+    
+    
 }
