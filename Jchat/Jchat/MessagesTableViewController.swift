@@ -10,6 +10,8 @@ import UIKit
 
 class MessagesTableViewController: UITableViewController {
 
+    var inboxArray = [Inbox]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +20,19 @@ class MessagesTableViewController: UITableViewController {
     }
     
     func observeInbox() {
-        Api.Inbox.lastMessages(uid: Api.User.currentUserId)
+        Api.Inbox.lastMessages(uid: Api.User.currentUserId) { (inbox) in
+            if !self.inboxArray.contains(where: {$0.user.uid == inbox.user.uid}) {
+                self.inboxArray.append(inbox)
+                self.sortedInbox()
+            }
+        }
+    }
+    
+    func sortedInbox() {
+        inboxArray = inboxArray.sorted(by: {$0.date > $1.date })
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func setupTableView() {
@@ -31,16 +45,36 @@ class MessagesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return inboxArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InboxTableViewCell", for: indexPath) as! InboxTableViewCell
 
-        // Configure the cell...
+       let inbox = self.inboxArray[indexPath.row]
+        cell.configureCell(uid: Api.User.currentUserId, inbox: inbox)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 94
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? InboxTableViewCell {
+            
+            let storyBoard = UIStoryboard(name: "Welcome", bundle: nil)
+            
+            let chatVC = storyBoard.instantiateViewController(withIdentifier: IDENTIFIER_CHAT) as! ChatViewController
+            
+            chatVC.imagePartner = cell.avatar.image
+            chatVC.partnerUsername = cell.usernameLabel.text
+            chatVC.partnerId = cell.user.uid
+            
+            self.navigationController?.pushViewController(chatVC, animated: true)
+        }
     }
    
 

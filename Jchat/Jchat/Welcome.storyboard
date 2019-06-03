@@ -165,7 +165,6 @@
                                     <outlet property="avatar" destination="fXM-nn-sJC" id="wlG-qX-0tZ"/>
                                     <outlet property="dateLabel" destination="X87-XL-Ux1" id="Wem-mH-FpU"/>
                                     <outlet property="messageLabel" destination="mcD-cE-PQF" id="zeo-cZ-MFW"/>
-                                    <outlet property="statusLabel" destination="mcD-cE-PQF" id="pwE-Zr-she"/>
                                     <outlet property="usernameLabel" destination="yrh-iC-bHN" id="3tc-rp-SBT"/>
                                 </connections>
                             </tableViewCell>
