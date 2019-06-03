@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        UINavigationBar.appearance().tintColor = UIColor(red: 93/255, green: 79/255, blue: 141/255, alpha: 1)
+        let backImg = UIImage(named: "back")
+        UINavigationBar.appearance().backIndicatorImage = backImg
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImg
+        
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset.init(horizontal: -1000, vertical: 0), for: UIBarMetrics.default)
+        
         FirebaseApp.configure()
         
         configureInitialViewController()

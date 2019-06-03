@@ -7,17 +7,40 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MessagesTableViewController: UITableViewController {
 
     var inboxArray = [Inbox]()
+    var avatarImageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupNavigationBar()
         setupTableView()
         observeInbox()
     }
+    
+    func setupNavigationBar() {
+        navigationItem.title = "Messages"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
+        
+        avatarImageView.contentMode = .scaleAspectFill
+        avatarImageView.layer.cornerRadius = 18
+        avatarImageView.clipsToBounds = true
+        containerView.addSubview(avatarImageView)
+        
+        let leftBarButton = UIBarButtonItem(customView: containerView)
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        
+        if let currentUser = Auth.auth().currentUser, let photoUrl = currentUser.photoURL {
+            avatarImageView.loadImage(photoUrl.absoluteString)
+        }
+    }
+    
     
     func observeInbox() {
         Api.Inbox.lastMessages(uid: Api.User.currentUserId) { (inbox) in
@@ -78,10 +101,10 @@ class MessagesTableViewController: UITableViewController {
     }
    
 
-    @IBAction func logoutBarButtonPressed(_ sender: UIBarButtonItem) {
-        
-        Api.User.logOut()
-        
-    }
+//    @IBAction func logoutBarButtonPressed(_ sender: UIBarButtonItem) {
+//        
+//        Api.User.logOut()
+//        
+//    }
     
 }

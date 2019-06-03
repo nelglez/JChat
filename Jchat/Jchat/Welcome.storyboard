@@ -174,13 +174,7 @@
                             <outlet property="delegate" destination="9rC-aM-UaO" id="Lev-Q5-D0C"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="w69-ii-Fvg">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="8zX-KZ-lxV">
-                            <connections>
-                                <action selector="logoutBarButtonPressed:" destination="9rC-aM-UaO" id="pIR-Jw-V00"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="w69-ii-Fvg"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vw-Uv-Zyp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
