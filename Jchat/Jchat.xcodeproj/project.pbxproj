@@ -35,6 +35,8 @@
 		7AB9233121EBBEED00C02CC1 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB9233021EBBEED00C02CC1 /* ForgotPasswordViewController.swift */; };
 		7AB9233321EBBEFD00C02CC1 /* ForgotPasswordViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB9233221EBBEFD00C02CC1 /* ForgotPasswordViewController+UI.swift */; };
 		7AEC400F22A5486100D21811 /* Inbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC400E22A5486100D21811 /* Inbox.swift */; };
+		7AEC401122A54C0300D21811 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC401022A54C0200D21811 /* InboxTableViewCell.swift */; };
+		7AEC401322A54D0900D21811 /* InboxApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC401222A54D0900D21811 /* InboxApi.swift */; };
 		D77F8A698652525FA495EE83 /* Pods_Jchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973A4A00D4070ACF46F7E255 /* Pods_Jchat.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,8 @@
 		7AB9233021EBBEED00C02CC1 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		7AB9233221EBBEFD00C02CC1 /* ForgotPasswordViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForgotPasswordViewController+UI.swift"; sourceTree = "<group>"; };
 		7AEC400E22A5486100D21811 /* Inbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inbox.swift; sourceTree = "<group>"; };
+		7AEC401022A54C0200D21811 /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
+		7AEC401222A54D0900D21811 /* InboxApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxApi.swift; sourceTree = "<group>"; };
 		973A4A00D4070ACF46F7E255 /* Pods_Jchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8E6556F44F1D048EDE7874 /* Pods-Jchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jchat.debug.xcconfig"; path = "Target Support Files/Pods-Jchat/Pods-Jchat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +126,7 @@
 				7A7866B4224697C300C0B296 /* ChatViewController.swift */,
 				7A7866BC2247C01900C0B296 /* ChatViewController+Extension.swift */,
 				7A7866BA2247A54900C0B296 /* MessageTableViewCell.swift */,
+				7AEC401022A54C0200D21811 /* InboxTableViewCell.swift */,
 				7A8641FB223D94230053C022 /* Api.swift */,
 				7A8641FD223D94770053C022 /* UserApi.swift */,
 				7A8641FF223D98330053C022 /* StorageService.swift */,
@@ -131,6 +136,7 @@
 				7A7866B82246D29500C0B296 /* Message.swift */,
 				7A7866B62246AB7000C0B296 /* MessageApi.swift */,
 				7A7866B2224683AC00C0B296 /* Extension.swift */,
+				7AEC401222A54D0900D21811 /* InboxApi.swift */,
 				7A8ED60921EA64E200E9EE73 /* Welcome.storyboard */,
 				7A8ED5FE21EA64A800E9EE73 /* Assets.xcassets */,
 				7A8ED60021EA64A800E9EE73 /* LaunchScreen.storyboard */,
@@ -290,8 +296,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB9233121EBBEED00C02CC1 /* ForgotPasswordViewController.swift in Sources */,
+				7AEC401322A54D0900D21811 /* InboxApi.swift in Sources */,
 				7A864200223D98330053C022 /* StorageService.swift in Sources */,
 				7AB9232721EA7BB900C02CC1 /* ViewController+UI.swift in Sources */,
+				7AEC401122A54C0300D21811 /* InboxTableViewCell.swift in Sources */,
 				7AB9232F21EA8E1700C02CC1 /* SignInViewController+UI.swift in Sources */,
 				7A7866AF22467A7200C0B296 /* UserTableViewCell.swift in Sources */,
 				7A7866AD2246791900C0B296 /* PeopleTableViewController.swift in Sources */,

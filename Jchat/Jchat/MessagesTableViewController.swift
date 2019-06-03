@@ -14,6 +14,11 @@ class MessagesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setupTableView()
+        observeInbox()
+    }
+    
+    func observeInbox() {
+        Api.Inbox.lastMessages(uid: Api.User.currentUserId)
     }
     
     func setupTableView() {
@@ -39,16 +44,6 @@ class MessagesTableViewController: UITableViewController {
     }
    
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func logoutBarButtonPressed(_ sender: UIBarButtonItem) {
         
         Api.User.logOut()
