@@ -68,6 +68,16 @@ class UserApi {
         }
     }
     
+    func saveUserProfile(dict: Dictionary<String, Any>, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        
+        Ref().databaseSpecificProfile(uid: Api.User.currentUserId).updateChildValues(dict) { (error, snapshot) in
+            if error != nil {
+                onError(error!.localizedDescription)
+                return
+            }
+            onSuccess()
+        }
+    }
     
     func resetPassword(email: String, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
@@ -93,6 +103,18 @@ class UserApi {
     
     func observeUsers(onSuccess: @escaping(UserCompletion)) {
         Ref().databaseUsers.observe(.childAdded) { (snapshot) in
+            if let dict = snapshot.value as? Dictionary<String, Any> {
+                if let user = User.transformUser(dict: dict) {
+                    onSuccess(user)
+                }
+                
+            }
+        }
+    }
+    
+    func getUserInfoForSingleEvent(uid: String, onSuccess: @escaping(UserCompletion)) {
+        let ref = Ref().databaseSpecificProfile(uid: uid)
+        ref.observeSingleEvent(of: .value) { (snapshot) in
             if let dict = snapshot.value as? Dictionary<String, Any> {
                 if let user = User.transformUser(dict: dict) {
                     onSuccess(user)

@@ -98,13 +98,5 @@ class MessagesTableViewController: UITableViewController {
             
             self.navigationController?.pushViewController(chatVC, animated: true)
         }
-    }
-   
-
-//    @IBAction func logoutBarButtonPressed(_ sender: UIBarButtonItem) {
-//        
-//        Api.User.logOut()
-//        
-//    }
-    
+    }    
 }
