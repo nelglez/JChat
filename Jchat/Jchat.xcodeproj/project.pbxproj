@@ -37,6 +37,7 @@
 		7AEC400F22A5486100D21811 /* Inbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC400E22A5486100D21811 /* Inbox.swift */; };
 		7AEC401122A54C0300D21811 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC401022A54C0200D21811 /* InboxTableViewCell.swift */; };
 		7AEC401322A54D0900D21811 /* InboxApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC401222A54D0900D21811 /* InboxApi.swift */; };
+		7AEC405F22B136C400D21811 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEC405E22B136C400D21811 /* ProfileTableViewController.swift */; };
 		D77F8A698652525FA495EE83 /* Pods_Jchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973A4A00D4070ACF46F7E255 /* Pods_Jchat.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		7AEC400E22A5486100D21811 /* Inbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inbox.swift; sourceTree = "<group>"; };
 		7AEC401022A54C0200D21811 /* InboxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		7AEC401222A54D0900D21811 /* InboxApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxApi.swift; sourceTree = "<group>"; };
+		7AEC405E22B136C400D21811 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		973A4A00D4070ACF46F7E255 /* Pods_Jchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8E6556F44F1D048EDE7874 /* Pods-Jchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jchat.debug.xcconfig"; path = "Target Support Files/Pods-Jchat/Pods-Jchat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 				7A7866BC2247C01900C0B296 /* ChatViewController+Extension.swift */,
 				7A7866BA2247A54900C0B296 /* MessageTableViewCell.swift */,
 				7AEC401022A54C0200D21811 /* InboxTableViewCell.swift */,
+				7AEC405E22B136C400D21811 /* ProfileTableViewController.swift */,
 				7A8641FB223D94230053C022 /* Api.swift */,
 				7A8641FD223D94770053C022 /* UserApi.swift */,
 				7A8641FF223D98330053C022 /* StorageService.swift */,
@@ -304,6 +307,7 @@
 				7A7866AF22467A7200C0B296 /* UserTableViewCell.swift in Sources */,
 				7A7866AD2246791900C0B296 /* PeopleTableViewController.swift in Sources */,
 				7AEC400F22A5486100D21811 /* Inbox.swift in Sources */,
+				7AEC405F22B136C400D21811 /* ProfileTableViewController.swift in Sources */,
 				7A7866B92246D29500C0B296 /* Message.swift in Sources */,
 				7A7866B72246AB7000C0B296 /* MessageApi.swift in Sources */,
 				7A8ED5FA21EA64A200E9EE73 /* ViewController.swift in Sources */,
