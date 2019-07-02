@@ -35,11 +35,21 @@ extension ChatViewController {
     func setupNavigationBar() {
         navigationItem.largeTitleDisplayMode = .never
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
-        avatarImageView.image = imagePartner
+ //       avatarImageView.image = imagePartner
         avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.layer.cornerRadius = 18
         avatarImageView.clipsToBounds = true
         containerView.addSubview(avatarImageView)
+        
+        if imagePartner != nil {
+            avatarImageView.image = imagePartner
+            observeMessages()
+        } else {
+            avatarImageView.loadImage(partnerUser.profileImageUrl) { (image) in
+                self.imagePartner = image
+                self.observeMessages()
+            }
+        }
         
         let rightBarButton = UIBarButtonItem(customView: containerView)
         self.navigationItem.rightBarButtonItem = rightBarButton

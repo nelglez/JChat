@@ -39,7 +39,7 @@ class ChatViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         setupPicker()
-        observeMessages()
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {

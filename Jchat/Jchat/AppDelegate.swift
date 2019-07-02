@@ -116,7 +116,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         connectToFirebase()
         Messaging.messaging().appDidReceiveMessage(userInfo)
         
+        if let dictString = userInfo["gcm.notification.customData"] as? String {
+            print("dictString: \(dictString)")
+            if let dict = convertToDictionary(text: dictString) {
+                if let uid = dict["userId"] as? String, let username = dict["username"] as? String, let email = dict["email"] as? String, let profileImageUrl = dict["profileImageUrl"] as? String {
+                    
+                    let user = User(uid: uid, username: username, email: email, profileImageUrl: profileImageUrl, status: "")
+                    
+                    let storyBoard = UIStoryboard(name: "Welcome", bundle: nil)
+                    
+                    let chatVC = storyBoard.instantiateViewController(withIdentifier: IDENTIFIER_CHAT) as! ChatViewController
+                
+                    chatVC.partnerUsername = user.username
+                    chatVC.partnerId = user.uid
+                    chatVC.partnerUser = user
+                    guard let currentVC = UIApplication.topViewController() else { return }
+                    currentVC.navigationController?.pushViewController(chatVC, animated: true)
+                }
+                
+            }
+        }
+        
         completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
+    func convertToDictionary(text: String) -> [String : Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data
+                , options: []) as? [String : Any]
+            } catch {
+                print(error.localizedDescription)
+                return nil
+            }
+        }
+        return nil
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
