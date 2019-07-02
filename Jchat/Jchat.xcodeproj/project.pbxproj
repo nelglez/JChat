@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		27F347EF66CFC01937BCC241 /* Pods-Jchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jchat.release.xcconfig"; path = "Target Support Files/Pods-Jchat/Pods-Jchat.release.xcconfig"; sourceTree = "<group>"; };
+		7A2AB68D22CBAD9B002200CD /* Jchat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jchat.entitlements; sourceTree = "<group>"; };
 		7A7866AA2246759B00C0B296 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		7A7866AC2246791900C0B296 /* PeopleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
 		7A7866AE22467A7200C0B296 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		7A8ED5F621EA64A200E9EE73 /* Jchat */ = {
 			isa = PBXGroup;
 			children = (
+				7A2AB68D22CBAD9B002200CD /* Jchat.entitlements */,
 				7A8ED5F721EA64A200E9EE73 /* AppDelegate.swift */,
 				7A8ED5F921EA64A200E9EE73 /* ViewController.swift */,
 				7AB9232621EA7BB900C02CC1 /* ViewController+UI.swift */,
@@ -201,6 +203,11 @@
 					7A8ED5F321EA64A200E9EE73 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -448,6 +455,7 @@
 			baseConfigurationReference = CA8E6556F44F1D048EDE7874 /* Pods-Jchat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Jchat/Jchat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZD9LN99SX6;
 				INFOPLIST_FILE = Jchat/Info.plist;
@@ -467,6 +475,7 @@
 			baseConfigurationReference = 27F347EF66CFC01937BCC241 /* Pods-Jchat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Jchat/Jchat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZD9LN99SX6;
 				INFOPLIST_FILE = Jchat/Info.plist;
