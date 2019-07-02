@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseMessaging
 
 class MessagesTableViewController: UITableViewController {
 
@@ -38,6 +39,13 @@ class MessagesTableViewController: UITableViewController {
         
         if let currentUser = Auth.auth().currentUser, let photoUrl = currentUser.photoURL {
             avatarImageView.loadImage(photoUrl.absoluteString)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if !Api.User.currentUserId.isEmpty {
+            Messaging.messaging().subscribe(toTopic: Api.User.currentUserId)
         }
     }
     
@@ -95,7 +103,7 @@ class MessagesTableViewController: UITableViewController {
             chatVC.imagePartner = cell.avatar.image
             chatVC.partnerUsername = cell.usernameLabel.text
             chatVC.partnerId = cell.user.uid
-            
+            chatVC.partnerUser = cell.user
             self.navigationController?.pushViewController(chatVC, animated: true)
         }
     }    

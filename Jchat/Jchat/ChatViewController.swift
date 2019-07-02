@@ -23,6 +23,7 @@ class ChatViewController: UIViewController {
     var imagePartner: UIImage!
     var partnerUsername: String!
     var partnerId: String!
+    var partnerUser: User!
     var avatarImageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 36, height: 36))
     var topLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
     var placeHolderLabel = UILabel()

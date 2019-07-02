@@ -22,6 +22,7 @@
 		7A8641FE223D94770053C022 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FD223D94770053C022 /* UserApi.swift */; };
 		7A864200223D98330053C022 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8641FF223D98330053C022 /* StorageService.swift */; };
 		7A864202223D9BED0053C022 /* Ref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A864201223D9BED0053C022 /* Ref.swift */; };
+		7A88FA6722CBB76B00202C2A /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A88FA6622CBB76B00202C2A /* Configs.swift */; };
 		7A8ED5F821EA64A200E9EE73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED5F721EA64A200E9EE73 /* AppDelegate.swift */; };
 		7A8ED5FA21EA64A200E9EE73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED5F921EA64A200E9EE73 /* ViewController.swift */; };
 		7A8ED5FF21EA64A800E9EE73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ED5FE21EA64A800E9EE73 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		7A8641FD223D94770053C022 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		7A8641FF223D98330053C022 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		7A864201223D9BED0053C022 /* Ref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ref.swift; sourceTree = "<group>"; };
+		7A88FA6622CBB76B00202C2A /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		7A8ED5F421EA64A200E9EE73 /* Jchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8ED5F721EA64A200E9EE73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A8ED5F921EA64A200E9EE73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				7A7866B62246AB7000C0B296 /* MessageApi.swift */,
 				7A7866B2224683AC00C0B296 /* Extension.swift */,
 				7AEC401222A54D0900D21811 /* InboxApi.swift */,
+				7A88FA6622CBB76B00202C2A /* Configs.swift */,
 				7A8ED60921EA64E200E9EE73 /* Welcome.storyboard */,
 				7A8ED5FE21EA64A800E9EE73 /* Assets.xcassets */,
 				7A8ED60021EA64A800E9EE73 /* LaunchScreen.storyboard */,
@@ -303,6 +306,7 @@
 				7A7866B92246D29500C0B296 /* Message.swift in Sources */,
 				7A7866B72246AB7000C0B296 /* MessageApi.swift in Sources */,
 				7A8ED5FA21EA64A200E9EE73 /* ViewController.swift in Sources */,
+				7A88FA6722CBB76B00202C2A /* Configs.swift in Sources */,
 				7A7866B122467F4300C0B296 /* User.swift in Sources */,
 				7AB9233321EBBEFD00C02CC1 /* ForgotPasswordViewController+UI.swift in Sources */,
 				7A7866B3224683AC00C0B296 /* Extension.swift in Sources */,

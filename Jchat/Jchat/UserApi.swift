@@ -91,8 +91,10 @@ class UserApi {
     
     
     func logOut() {
+        let uid = Api.User.currentUserId
         do {
             try Auth.auth().signOut()
+            Messaging.messaging().unsubscribe(fromTopic: uid)
         } catch {
             ProgressHUD.showError(error.localizedDescription)
             return

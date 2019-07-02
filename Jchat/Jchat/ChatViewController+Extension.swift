@@ -107,6 +107,24 @@ extension ChatViewController {
         value["read"] = true
         
         Api.Message.sendMessage(from: Api.User.currentUserId, to: partnerId, value: value)
+
+        if let videoUrl = dict["videoUrl"] as? String, !videoUrl.isEmpty {
+            //Send Video Notification
+            handleNotification(fromUid: Api.User.currentUserId, message: "[VIDEO]")
+        } else if let imageUrl = dict["imageUrl"] as? String, !imageUrl.isEmpty {
+            //Send image notification
+            handleNotification(fromUid: Api.User.currentUserId, message: "[PHOTO]")
+        } else if let text = dict["text"] as? String, !text.isEmpty {
+            //Send text notification
+            handleNotification(fromUid: Api.User.currentUserId, message: text)
+        }
+
+    }
+    
+    func handleNotification(fromUid: String, message: String) {
+        Api.User.getUserInfoForSingleEvent(uid: fromUid) { (user) in
+            sendRequestNotification(fromUser: user, toUser: self.partnerUser, message: message, badge: 1)
+        }
     }
     
 }
